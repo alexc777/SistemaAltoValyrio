@@ -51,9 +51,13 @@
       <DependentUpon>AltoValirioDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Class\Bodega.cs" />
+    <Compile Include="Class\Categoria.cs" />
     <Compile Include="Class\Login.cs" />
+    <Compile Include="Class\Marca.cs" />
     <Compile Include="Class\OperacionesBodega.cs" />
+    <Compile Include="Class\OperacionesMarcaCategoria.cs" />
     <Compile Include="Class\OperacionesUsuario.cs" />
+    <Compile Include="Class\Productos.cs" />
     <Compile Include="Class\Roles.cs" />
     <Compile Include="Class\Usuarios.cs" />
     <Compile Include="Form1.cs">
@@ -68,6 +72,24 @@
     <Compile Include="FrmCrearBodegas.Designer.cs">
       <DependentUpon>FrmCrearBodegas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCrearCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCrearCategoria.Designer.cs">
+      <DependentUpon>FrmCrearCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCrearMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCrearMarca.Designer.cs">
+      <DependentUpon>FrmCrearMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCrearProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCrearProducto.Designer.cs">
+      <DependentUpon>FrmCrearProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCrearUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +103,7 @@
       <DependentUpon>FrmHome.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IBodega.cs" />
+    <Compile Include="Interfaces\IMarcaCategoria.cs" />
     <Compile Include="Interfaces\IUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,6 +112,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCrearBodegas.resx">
       <DependentUpon>FrmCrearBodegas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCrearCategoria.resx">
+      <DependentUpon>FrmCrearCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCrearMarca.resx">
+      <DependentUpon>FrmCrearMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCrearProducto.resx">
+      <DependentUpon>FrmCrearProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCrearUsuarios.resx">
       <DependentUpon>FrmCrearUsuarios.cs</DependentUpon>

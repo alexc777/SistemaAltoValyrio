@@ -28,6 +28,8 @@ namespace ProyectoFinalProgralll
         {
             adminToolStripMenuItem.Visible = false;
             productosToolStripMenuItem.Visible = false;
+            marcaToolStripMenuItem.Visible = false;
+            categoriaToolStripMenuItem.Visible = false;
 
             if (Form1.miId == 1)
             {
@@ -38,6 +40,12 @@ namespace ProyectoFinalProgralll
             {
                 productosToolStripMenuItem.Enabled = true;
                 productosToolStripMenuItem.Visible = true;
+
+                marcaToolStripMenuItem.Enabled = true;
+                marcaToolStripMenuItem.Visible = true;
+
+                categoriaToolStripMenuItem.Enabled = true;
+                categoriaToolStripMenuItem.Visible = true;
             }
            
         }
@@ -55,6 +63,30 @@ namespace ProyectoFinalProgralll
             using (var bodega = new FrmCrearBodegas(this))
             {
                 bodega.ShowDialog();
+            }
+        }
+
+        private void crearMarcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var marca = new FrmCrearMarca(this))
+            {
+                marca.ShowDialog();
+            }
+        }
+
+        private void crearCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var categoria = new FrmCrearCategoria(this))
+            {
+                categoria.ShowDialog();
+            }
+        }
+
+        private void crearProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var producto = new FrmCrearProducto(this))
+            {
+                producto.ShowDialog();
             }
         }
     }
