@@ -1,6 +1,7 @@
 ﻿using ProyectoFinalProgralll.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,52 @@ namespace ProyectoFinalProgralll.Class
 {
     public class OperacionesUsuario : IUsuario
     {
-        public void BuscarUsuario(string correo)
+        public DataSet BuscarUsuario(string correo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
+                    conn.Open();
+
+                    var select = "SELECT * FROM Usuarios WHERE Correo ='"+ correo + "'";
+                    var dataAdapter = new SqlDataAdapter(select, conn);
+                    var commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    var ds = new DataSet();
+                    dataAdapter.Fill(ds);
+
+                    return ds;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public DataSet BuscarUsuarioNombre(string nombre)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
+                    conn.Open();
+
+                    var select = "SELECT * FROM Usuarios WHERE Nombre ='" + nombre + "'";
+                    var dataAdapter = new SqlDataAdapter(select, conn);
+                    var commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    var ds = new DataSet();
+                    dataAdapter.Fill(ds);
+
+                    return ds;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public void CrearUsuario(Usuarios usuario)
@@ -54,6 +98,30 @@ namespace ProyectoFinalProgralll.Class
         public void EliminarUsuario(int id, int estado)
         {
             throw new NotImplementedException();
+        }
+
+        public DataSet ObtenerUsuarios()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
+                    conn.Open();
+
+                    var select = "SELECT * FROM Usuarios";
+                    var dataAdapter = new SqlDataAdapter(select, conn);
+                    var commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    var ds = new DataSet();
+                    dataAdapter.Fill(ds);
+
+                    return ds;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

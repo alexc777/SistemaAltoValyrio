@@ -110,6 +110,12 @@
     <Compile Include="FrmHome.Designer.cs">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoUsuarios.Designer.cs">
+      <DependentUpon>FrmListadoUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IBodega.cs" />
     <Compile Include="Interfaces\IMarcaCategoria.cs" />
     <Compile Include="Interfaces\IProducto.cs" />
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoUsuarios.resx">
+      <DependentUpon>FrmListadoUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

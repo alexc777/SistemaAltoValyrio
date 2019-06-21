@@ -92,5 +92,13 @@ namespace ProyectoFinalProgralll
                 producto.ShowDialog();
             }
         }
+
+        private void listadoUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var list = new FrmListadoUsuarios(this))
+            {
+                list.ShowDialog();
+            }
+        }
     }
 }
