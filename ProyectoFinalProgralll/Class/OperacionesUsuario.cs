@@ -109,7 +109,9 @@ namespace ProyectoFinalProgralll.Class
                     conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
                     conn.Open();
 
-                    var select = "SELECT * FROM Usuarios";
+                    //var select = "SELECT * FROM Usuarios";
+                    var select = "SELECT Usuarios.Nombre, Usuarios.Apellido, Usuarios.Correo, Bodega.Nombre as 'Bodega', Roles.Nombre as 'Rol' " +
+                        "FROM Usuarios INNER JOIN Bodega ON Usuarios.Id_bodega = Bodega.id INNER JOIN Roles ON Usuarios.Id_rol = Roles.id";
                     var dataAdapter = new SqlDataAdapter(select, conn);
                     var commandBuilder = new SqlCommandBuilder(dataAdapter);
                     var ds = new DataSet();

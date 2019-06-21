@@ -14,7 +14,6 @@ namespace ProyectoFinalProgralll
     public partial class FrmListadoUsuarios : Form
     {
         private home FrmHome;
-        List<object> ListUsers = new List<object>();
 
         public FrmListadoUsuarios(home home)
         {
@@ -36,19 +35,6 @@ namespace ProyectoFinalProgralll
 
             if (dsUsers.Tables[0].Rows.Count != 0)
             {
-                //foreach (DataRow usuario in dsUsers.Tables[0].Rows)
-                //{
-                //    var userPush = new Usuarios
-                //    {
-                //        Nombre = usuario["Nombre"].ToString(),
-                //        Apellido = usuario["Apellido"].ToString(),
-                //        Correo = usuario["Correo"].ToString(),
-                //        Id_bodega = int.Parse(usuario["Id_bodega"].ToString())
-                //    };
-                //    ListUsers.Add(userPush);
-                //}
-                //BindingSource bs = new BindingSource();
-                //bs.DataSource = ListUsers;
                 GvUsuarios.DataSource = dsUsers.Tables[0];
                 GvUsuarios.Refresh();
             }
@@ -119,5 +105,16 @@ namespace ProyectoFinalProgralll
                 txtPass1.Text = informacion["Contrasenia"].ToString();
             }
         }
+
+        /*
+         *  SELECT Productos.Nombre, Productos.Precio, Marca.Nombre as 'Marca', Categoria.Nombre as 'Categoria', Productos.Refrigerado, 
+            Productos.Fecha_vence as 'Vence', Empaque.Tipo as 'Tipo Empaque',Productos.Cantidad FROM Productos
+            INNER JOIN Marca ON Productos.Id_marca = Marca.Id
+            INNER JOIN Categoria ON Productos.Id_categoria = Categoria.Id
+            INNER JOIN Empaque ON Productos.TipoEmpaque = Empaque.Id
+
+        SELECT * FROM Productos ORDER BY Productos.Fecha_creo ASC
+         * 
+         */
     }
 }
