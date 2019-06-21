@@ -13,6 +13,7 @@ namespace ProyectoFinalProgralll
     public partial class home : Form
     {
         private Form1 Form1;
+        public int IdUsuario = 0;
         public home(Form1 form1)
         {
             InitializeComponent();
@@ -30,6 +31,8 @@ namespace ProyectoFinalProgralll
             productosToolStripMenuItem.Visible = false;
             marcaToolStripMenuItem.Visible = false;
             categoriaToolStripMenuItem.Visible = false;
+
+            IdUsuario = Form1.IdUsuario;
 
             if (Form1.miId == 1)
             {

@@ -50,12 +50,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AltoValirioDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="AltoValirioDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AltoValirioDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Class\Bodega.cs" />
     <Compile Include="Class\Categoria.cs" />
+    <Compile Include="Class\Empaque.cs" />
+    <Compile Include="Class\HubicacionProducto.cs" />
     <Compile Include="Class\Login.cs" />
     <Compile Include="Class\Marca.cs" />
     <Compile Include="Class\OperacionesBodega.cs" />
     <Compile Include="Class\OperacionesMarcaCategoria.cs" />
+    <Compile Include="Class\OperacionesProductos.cs" />
     <Compile Include="Class\OperacionesUsuario.cs" />
     <Compile Include="Class\Productos.cs" />
     <Compile Include="Class\Roles.cs" />
@@ -104,6 +112,7 @@
     </Compile>
     <Compile Include="Interfaces\IBodega.cs" />
     <Compile Include="Interfaces\IMarcaCategoria.cs" />
+    <Compile Include="Interfaces\IProducto.cs" />
     <Compile Include="Interfaces\IUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,6 +156,17 @@
     </None>
     <None Include="AltoValirioDataSet.xss">
       <DependentUpon>AltoValirioDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AltoValirioDataSet1.xsc">
+      <DependentUpon>AltoValirioDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="AltoValirioDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AltoValirioDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AltoValirioDataSet1.xss">
+      <DependentUpon>AltoValirioDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

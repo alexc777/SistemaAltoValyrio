@@ -14,6 +14,7 @@ namespace ProyectoFinalProgralll
     public partial class Form1 : Form
     {
         public int miId = 0;
+        public int IdUsuario = 0;
         public Form1()
         {
             InitializeComponent();
@@ -31,6 +32,8 @@ namespace ProyectoFinalProgralll
             {
                 MessageBox.Show("Usuario Encontrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 miId = ReturnIdRol(dsUsuario);
+                IdUsuario = ReturnIdUser(dsUsuario);
+
                 using (var mhome = new home(this))
                 {
                     mhome.ShowDialog();
@@ -64,6 +67,29 @@ namespace ProyectoFinalProgralll
             idRol = int.Parse(strIdRol);
 
             return idRol;
+        }
+
+        public int ReturnIdUser(DataSet usuario)
+        {
+            var dsUser = usuario;
+            string strIdUser = "";
+            int idUser = 0;
+
+            if (dsUser.Tables[0].Rows.Count != 0)
+            {
+                foreach (DataRow idCafe in dsUser.Tables[0].Rows)
+                {
+                    strIdUser = idCafe["Id"].ToString();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Id Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            idUser = int.Parse(strIdUser);
+
+            return idUser;
         }
     }
 }
