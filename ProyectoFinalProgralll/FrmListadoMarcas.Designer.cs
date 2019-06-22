@@ -43,6 +43,7 @@
             // 
             // GvUsuarios
             // 
+            this.GvUsuarios.BackgroundColor = System.Drawing.Color.DarkRed;
             this.GvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GvUsuarios.Location = new System.Drawing.Point(305, 12);
             this.GvUsuarios.Name = "GvUsuarios";
@@ -58,6 +59,7 @@
             this.groupBox1.Controls.Add(this.Btn_Buscar);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(281, 138);
@@ -85,31 +87,37 @@
             // 
             // Btn_Eliminar
             // 
+            this.Btn_Eliminar.BackColor = System.Drawing.Color.Black;
+            this.Btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Eliminar.Location = new System.Drawing.Point(180, 93);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
             this.Btn_Eliminar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Eliminar.TabIndex = 31;
             this.Btn_Eliminar.Text = "Eliminar";
-            this.Btn_Eliminar.UseVisualStyleBackColor = true;
+            this.Btn_Eliminar.UseVisualStyleBackColor = false;
             // 
             // Btn_Editar
             // 
+            this.Btn_Editar.BackColor = System.Drawing.Color.Black;
+            this.Btn_Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Editar.Location = new System.Drawing.Point(99, 93);
             this.Btn_Editar.Name = "Btn_Editar";
             this.Btn_Editar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Editar.TabIndex = 30;
             this.Btn_Editar.Text = "Editar";
-            this.Btn_Editar.UseVisualStyleBackColor = true;
+            this.Btn_Editar.UseVisualStyleBackColor = false;
             this.Btn_Editar.Click += new System.EventHandler(this.Btn_Editar_Click);
             // 
             // Btn_Buscar
             // 
+            this.Btn_Buscar.BackColor = System.Drawing.Color.Black;
+            this.Btn_Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Buscar.Location = new System.Drawing.Point(18, 93);
             this.Btn_Buscar.Name = "Btn_Buscar";
             this.Btn_Buscar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Buscar.TabIndex = 29;
             this.Btn_Buscar.Text = "Buscar";
-            this.Btn_Buscar.UseVisualStyleBackColor = true;
+            this.Btn_Buscar.UseVisualStyleBackColor = false;
             this.Btn_Buscar.Click += new System.EventHandler(this.Btn_Buscar_Click);
             // 
             // txtNombre
@@ -133,6 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(690, 179);
             this.Controls.Add(this.GvUsuarios);
             this.Controls.Add(this.groupBox1);

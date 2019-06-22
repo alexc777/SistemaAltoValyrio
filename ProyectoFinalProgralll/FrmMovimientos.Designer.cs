@@ -34,6 +34,7 @@
             // 
             // GvMovimientos
             // 
+            this.GvMovimientos.BackgroundColor = System.Drawing.Color.DarkRed;
             this.GvMovimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GvMovimientos.Location = new System.Drawing.Point(13, 12);
             this.GvMovimientos.Name = "GvMovimientos";
@@ -44,6 +45,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(745, 350);
             this.Controls.Add(this.GvMovimientos);
             this.Name = "FrmMovimientos";

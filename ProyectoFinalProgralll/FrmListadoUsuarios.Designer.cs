@@ -30,12 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtIdUser = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.Btn_Editar = new System.Windows.Forms.Button();
             this.Btn_Buscar = new System.Windows.Forms.Button();
             this.selectRol = new System.Windows.Forms.ComboBox();
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.altoValirioDataSet1 = new ProyectoFinalProgralll.AltoValirioDataSet1();
             this.label7 = new System.Windows.Forms.Label();
             this.selectBodega = new System.Windows.Forms.ComboBox();
+            this.bodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.txtPass2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,18 +53,13 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.GvUsuarios = new System.Windows.Forms.DataGridView();
-            this.txtIdUser = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.altoValirioDataSet1 = new ProyectoFinalProgralll.AltoValirioDataSet1();
-            this.bodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bodegaTableAdapter = new ProyectoFinalProgralll.AltoValirioDataSet1TableAdapters.BodegaTableAdapter();
-            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rolesTableAdapter = new ProyectoFinalProgralll.AltoValirioDataSet1TableAdapters.RolesTableAdapter();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GvUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.altoValirioDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bodegaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -83,6 +83,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(281, 320);
@@ -90,33 +91,57 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar Editar y Eliminar";
             // 
+            // txtIdUser
+            // 
+            this.txtIdUser.Location = new System.Drawing.Point(18, 254);
+            this.txtIdUser.Name = "txtIdUser";
+            this.txtIdUser.ReadOnly = true;
+            this.txtIdUser.Size = new System.Drawing.Size(111, 20);
+            this.txtIdUser.TabIndex = 33;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(15, 236);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 15);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "Id";
+            // 
             // Btn_Eliminar
             // 
+            this.Btn_Eliminar.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.Btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Eliminar.Location = new System.Drawing.Point(180, 288);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
             this.Btn_Eliminar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Eliminar.TabIndex = 31;
             this.Btn_Eliminar.Text = "Eliminar";
-            this.Btn_Eliminar.UseVisualStyleBackColor = true;
+            this.Btn_Eliminar.UseVisualStyleBackColor = false;
             // 
             // Btn_Editar
             // 
+            this.Btn_Editar.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.Btn_Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Editar.Location = new System.Drawing.Point(99, 288);
             this.Btn_Editar.Name = "Btn_Editar";
             this.Btn_Editar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Editar.TabIndex = 30;
             this.Btn_Editar.Text = "Editar";
-            this.Btn_Editar.UseVisualStyleBackColor = true;
+            this.Btn_Editar.UseVisualStyleBackColor = false;
             this.Btn_Editar.Click += new System.EventHandler(this.Btn_Editar_Click);
             // 
             // Btn_Buscar
             // 
+            this.Btn_Buscar.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.Btn_Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Buscar.Location = new System.Drawing.Point(18, 288);
             this.Btn_Buscar.Name = "Btn_Buscar";
             this.Btn_Buscar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Buscar.TabIndex = 29;
             this.Btn_Buscar.Text = "Buscar";
-            this.Btn_Buscar.UseVisualStyleBackColor = true;
+            this.Btn_Buscar.UseVisualStyleBackColor = false;
             this.Btn_Buscar.Click += new System.EventHandler(this.Btn_Buscar_Click);
             // 
             // selectRol
@@ -129,6 +154,16 @@
             this.selectRol.Size = new System.Drawing.Size(111, 21);
             this.selectRol.TabIndex = 28;
             this.selectRol.ValueMember = "Id";
+            // 
+            // rolesBindingSource
+            // 
+            this.rolesBindingSource.DataMember = "Roles";
+            this.rolesBindingSource.DataSource = this.altoValirioDataSet1;
+            // 
+            // altoValirioDataSet1
+            // 
+            this.altoValirioDataSet1.DataSetName = "AltoValirioDataSet1";
+            this.altoValirioDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label7
             // 
@@ -150,6 +185,11 @@
             this.selectBodega.Size = new System.Drawing.Size(111, 21);
             this.selectBodega.TabIndex = 26;
             this.selectBodega.ValueMember = "Id";
+            // 
+            // bodegaBindingSource
+            // 
+            this.bodegaBindingSource.DataMember = "Bodega";
+            this.bodegaBindingSource.DataSource = this.altoValirioDataSet1;
             // 
             // label6
             // 
@@ -250,48 +290,16 @@
             // 
             // GvUsuarios
             // 
+            this.GvUsuarios.BackgroundColor = System.Drawing.Color.DarkRed;
             this.GvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GvUsuarios.Location = new System.Drawing.Point(312, 12);
             this.GvUsuarios.Name = "GvUsuarios";
             this.GvUsuarios.Size = new System.Drawing.Size(476, 320);
             this.GvUsuarios.TabIndex = 1;
             // 
-            // txtIdUser
-            // 
-            this.txtIdUser.Location = new System.Drawing.Point(18, 254);
-            this.txtIdUser.Name = "txtIdUser";
-            this.txtIdUser.ReadOnly = true;
-            this.txtIdUser.Size = new System.Drawing.Size(111, 20);
-            this.txtIdUser.TabIndex = 33;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(15, 236);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(19, 15);
-            this.label8.TabIndex = 32;
-            this.label8.Text = "Id";
-            // 
-            // altoValirioDataSet1
-            // 
-            this.altoValirioDataSet1.DataSetName = "AltoValirioDataSet1";
-            this.altoValirioDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bodegaBindingSource
-            // 
-            this.bodegaBindingSource.DataMember = "Bodega";
-            this.bodegaBindingSource.DataSource = this.altoValirioDataSet1;
-            // 
             // bodegaTableAdapter
             // 
             this.bodegaTableAdapter.ClearBeforeFill = true;
-            // 
-            // rolesBindingSource
-            // 
-            this.rolesBindingSource.DataMember = "Roles";
-            this.rolesBindingSource.DataSource = this.altoValirioDataSet1;
             // 
             // rolesTableAdapter
             // 
@@ -301,19 +309,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(800, 356);
             this.Controls.Add(this.GvUsuarios);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmListadoUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmListadoUsuarios";
+            this.Text = "Listado Usuarios";
             this.Load += new System.EventHandler(this.FrmListadoUsuarios_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GvUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.altoValirioDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bodegaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GvUsuarios)).EndInit();
             this.ResumeLayout(false);
 
         }

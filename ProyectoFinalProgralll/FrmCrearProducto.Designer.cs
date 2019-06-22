@@ -66,12 +66,15 @@
             // 
             // Btn_Crear
             // 
+            this.Btn_Crear.BackColor = System.Drawing.Color.Black;
+            this.Btn_Crear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Crear.ForeColor = System.Drawing.Color.White;
             this.Btn_Crear.Location = new System.Drawing.Point(107, 238);
             this.Btn_Crear.Name = "Btn_Crear";
             this.Btn_Crear.Size = new System.Drawing.Size(75, 23);
             this.Btn_Crear.TabIndex = 9;
             this.Btn_Crear.Text = "Crear";
-            this.Btn_Crear.UseVisualStyleBackColor = true;
+            this.Btn_Crear.UseVisualStyleBackColor = false;
             this.Btn_Crear.Click += new System.EventHandler(this.Btn_Crear_Click);
             // 
             // selectCategoria
@@ -104,6 +107,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(160, 54);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 15);
@@ -130,6 +134,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(22, 54);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 15);
@@ -147,6 +152,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(160, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 15);
@@ -164,6 +170,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(22, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 15);
@@ -184,6 +191,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(22, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 15);
@@ -194,6 +202,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(160, 107);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 15);
@@ -212,6 +221,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(22, 162);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 15);
@@ -243,6 +253,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(160, 162);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 15);
@@ -276,6 +287,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(305, 282);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.label9);

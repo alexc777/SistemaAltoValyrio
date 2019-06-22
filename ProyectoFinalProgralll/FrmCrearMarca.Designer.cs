@@ -35,12 +35,15 @@
             // 
             // Btn_Crear
             // 
+            this.Btn_Crear.BackColor = System.Drawing.Color.Black;
+            this.Btn_Crear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Crear.ForeColor = System.Drawing.Color.White;
             this.Btn_Crear.Location = new System.Drawing.Point(106, 95);
             this.Btn_Crear.Name = "Btn_Crear";
             this.Btn_Crear.Size = new System.Drawing.Size(75, 23);
             this.Btn_Crear.TabIndex = 24;
             this.Btn_Crear.Text = "Crear";
-            this.Btn_Crear.UseVisualStyleBackColor = true;
+            this.Btn_Crear.UseVisualStyleBackColor = false;
             this.Btn_Crear.Click += new System.EventHandler(this.Btn_Crear_Click);
             // 
             // txtNombre
@@ -54,6 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(69, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 15);
@@ -64,6 +68,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(287, 155);
             this.Controls.Add(this.Btn_Crear);
             this.Controls.Add(this.txtNombre);

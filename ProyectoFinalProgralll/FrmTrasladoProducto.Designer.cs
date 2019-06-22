@@ -30,28 +30,28 @@
         {
             this.components = new System.ComponentModel.Container();
             this.selectCategoria = new System.Windows.Forms.ComboBox();
+            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.altoValirioDataSet1 = new ProyectoFinalProgralll.AltoValirioDataSet1();
             this.label6 = new System.Windows.Forms.Label();
             this.Btn_buscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtIdProducto = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.Btn_Trasladar = new System.Windows.Forms.Button();
+            this.selectBodega = new System.Windows.Forms.ComboBox();
+            this.bodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label5 = new System.Windows.Forms.Label();
             this.txtCanTraslado = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.selectBodega = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.Btn_Trasladar = new System.Windows.Forms.Button();
-            this.altoValirioDataSet1 = new ProyectoFinalProgralll.AltoValirioDataSet1();
-            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtIdProducto = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.categoriaTableAdapter = new ProyectoFinalProgralll.AltoValirioDataSet1TableAdapters.CategoriaTableAdapter();
-            this.bodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bodegaTableAdapter = new ProyectoFinalProgralll.AltoValirioDataSet1TableAdapters.BodegaTableAdapter();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.altoValirioDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.altoValirioDataSet1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bodegaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,10 +66,21 @@
             this.selectCategoria.TabIndex = 26;
             this.selectCategoria.ValueMember = "Id";
             // 
+            // categoriaBindingSource
+            // 
+            this.categoriaBindingSource.DataMember = "Categoria";
+            this.categoriaBindingSource.DataSource = this.altoValirioDataSet1;
+            // 
+            // altoValirioDataSet1
+            // 
+            this.altoValirioDataSet1.DataSetName = "AltoValirioDataSet1";
+            this.altoValirioDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(12, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(174, 15);
@@ -78,12 +89,15 @@
             // 
             // Btn_buscar
             // 
+            this.Btn_buscar.BackColor = System.Drawing.Color.Black;
+            this.Btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_buscar.ForeColor = System.Drawing.Color.White;
             this.Btn_buscar.Location = new System.Drawing.Point(225, 28);
             this.Btn_buscar.Name = "Btn_buscar";
             this.Btn_buscar.Size = new System.Drawing.Size(75, 23);
             this.Btn_buscar.TabIndex = 28;
             this.Btn_buscar.Text = "Buscar";
-            this.Btn_buscar.UseVisualStyleBackColor = true;
+            this.Btn_buscar.UseVisualStyleBackColor = false;
             this.Btn_buscar.Click += new System.EventHandler(this.Btn_buscar_Click);
             // 
             // groupBox1
@@ -99,6 +113,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtIdProducto);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(15, 87);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(285, 202);
@@ -106,41 +121,60 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Producto";
             // 
-            // label1
+            // Btn_Trasladar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 15);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Id Producto";
+            this.Btn_Trasladar.BackColor = System.Drawing.Color.Black;
+            this.Btn_Trasladar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Trasladar.Location = new System.Drawing.Point(149, 150);
+            this.Btn_Trasladar.Name = "Btn_Trasladar";
+            this.Btn_Trasladar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Trasladar.TabIndex = 39;
+            this.Btn_Trasladar.Text = "Trasladar";
+            this.Btn_Trasladar.UseVisualStyleBackColor = false;
+            this.Btn_Trasladar.Click += new System.EventHandler(this.Btn_Trasladar_Click);
             // 
-            // txtIdProducto
+            // selectBodega
             // 
-            this.txtIdProducto.Location = new System.Drawing.Point(6, 45);
-            this.txtIdProducto.Name = "txtIdProducto";
-            this.txtIdProducto.ReadOnly = true;
-            this.txtIdProducto.Size = new System.Drawing.Size(123, 20);
-            this.txtIdProducto.TabIndex = 30;
+            this.selectBodega.DataSource = this.bodegaBindingSource;
+            this.selectBodega.DisplayMember = "Nombre";
+            this.selectBodega.FormattingEnabled = true;
+            this.selectBodega.Location = new System.Drawing.Point(9, 152);
+            this.selectBodega.Name = "selectBodega";
+            this.selectBodega.Size = new System.Drawing.Size(120, 21);
+            this.selectBodega.TabIndex = 37;
+            this.selectBodega.ValueMember = "Id";
             // 
-            // txtNombre
+            // bodegaBindingSource
             // 
-            this.txtNombre.Location = new System.Drawing.Point(149, 45);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.ReadOnly = true;
-            this.txtNombre.Size = new System.Drawing.Size(123, 20);
-            this.txtNombre.TabIndex = 32;
+            this.bodegaBindingSource.DataMember = "Bodega";
+            this.bodegaBindingSource.DataSource = this.altoValirioDataSet1;
             // 
-            // label2
+            // label5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(149, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 15);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "Nombre";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 133);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 15);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Bodega";
+            // 
+            // txtCanTraslado
+            // 
+            this.txtCanTraslado.Location = new System.Drawing.Point(149, 100);
+            this.txtCanTraslado.Name = "txtCanTraslado";
+            this.txtCanTraslado.Size = new System.Drawing.Size(123, 20);
+            this.txtCanTraslado.TabIndex = 36;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(149, 82);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(124, 15);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "Cantidad Traslado";
             // 
             // txtCantidad
             // 
@@ -160,72 +194,45 @@
             this.label3.TabIndex = 33;
             this.label3.Text = "Cantidad";
             // 
-            // txtCanTraslado
+            // txtNombre
             // 
-            this.txtCanTraslado.Location = new System.Drawing.Point(149, 100);
-            this.txtCanTraslado.Name = "txtCanTraslado";
-            this.txtCanTraslado.Size = new System.Drawing.Size(123, 20);
-            this.txtCanTraslado.TabIndex = 36;
+            this.txtNombre.Location = new System.Drawing.Point(149, 45);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.ReadOnly = true;
+            this.txtNombre.Size = new System.Drawing.Size(123, 20);
+            this.txtNombre.TabIndex = 32;
             // 
-            // label4
+            // label2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(149, 82);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(124, 15);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "Cantidad Traslado";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(149, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 15);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "Nombre";
             // 
-            // selectBodega
+            // txtIdProducto
             // 
-            this.selectBodega.DataSource = this.bodegaBindingSource;
-            this.selectBodega.DisplayMember = "Nombre";
-            this.selectBodega.FormattingEnabled = true;
-            this.selectBodega.Location = new System.Drawing.Point(9, 152);
-            this.selectBodega.Name = "selectBodega";
-            this.selectBodega.Size = new System.Drawing.Size(120, 21);
-            this.selectBodega.TabIndex = 37;
-            this.selectBodega.ValueMember = "Id";
+            this.txtIdProducto.Location = new System.Drawing.Point(6, 45);
+            this.txtIdProducto.Name = "txtIdProducto";
+            this.txtIdProducto.ReadOnly = true;
+            this.txtIdProducto.Size = new System.Drawing.Size(123, 20);
+            this.txtIdProducto.TabIndex = 30;
             // 
-            // label5
+            // label1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 133);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 15);
-            this.label5.TabIndex = 38;
-            this.label5.Text = "Bodega";
-            // 
-            // Btn_Trasladar
-            // 
-            this.Btn_Trasladar.Location = new System.Drawing.Point(149, 150);
-            this.Btn_Trasladar.Name = "Btn_Trasladar";
-            this.Btn_Trasladar.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Trasladar.TabIndex = 39;
-            this.Btn_Trasladar.Text = "Trasladar";
-            this.Btn_Trasladar.UseVisualStyleBackColor = true;
-            this.Btn_Trasladar.Click += new System.EventHandler(this.Btn_Trasladar_Click);
-            // 
-            // altoValirioDataSet1
-            // 
-            this.altoValirioDataSet1.DataSetName = "AltoValirioDataSet1";
-            this.altoValirioDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categoriaBindingSource
-            // 
-            this.categoriaBindingSource.DataMember = "Categoria";
-            this.categoriaBindingSource.DataSource = this.altoValirioDataSet1;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 15);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Id Producto";
             // 
             // categoriaTableAdapter
             // 
             this.categoriaTableAdapter.ClearBeforeFill = true;
-            // 
-            // bodegaBindingSource
-            // 
-            this.bodegaBindingSource.DataMember = "Bodega";
-            this.bodegaBindingSource.DataSource = this.altoValirioDataSet1;
             // 
             // bodegaTableAdapter
             // 
@@ -235,6 +242,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(320, 301);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Btn_buscar);
@@ -244,10 +252,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trasladar Producto";
             this.Load += new System.EventHandler(this.FrmTrasladoProducto_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.altoValirioDataSet1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.altoValirioDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bodegaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
