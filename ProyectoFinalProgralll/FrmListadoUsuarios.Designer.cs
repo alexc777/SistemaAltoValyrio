@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Btn_Eliminar = new System.Windows.Forms.Button();
+            this.Btn_Editar = new System.Windows.Forms.Button();
             this.Btn_Buscar = new System.Windows.Forms.Button();
             this.selectRol = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -44,15 +47,25 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Btn_Editar = new System.Windows.Forms.Button();
-            this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.GvUsuarios = new System.Windows.Forms.DataGridView();
+            this.txtIdUser = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.altoValirioDataSet1 = new ProyectoFinalProgralll.AltoValirioDataSet1();
+            this.bodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bodegaTableAdapter = new ProyectoFinalProgralll.AltoValirioDataSet1TableAdapters.BodegaTableAdapter();
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rolesTableAdapter = new ProyectoFinalProgralll.AltoValirioDataSet1TableAdapters.RolesTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GvUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.altoValirioDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bodegaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtIdUser);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.Btn_Eliminar);
             this.groupBox1.Controls.Add(this.Btn_Editar);
             this.groupBox1.Controls.Add(this.Btn_Buscar);
@@ -77,9 +90,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar Editar y Eliminar";
             // 
+            // Btn_Eliminar
+            // 
+            this.Btn_Eliminar.Location = new System.Drawing.Point(180, 288);
+            this.Btn_Eliminar.Name = "Btn_Eliminar";
+            this.Btn_Eliminar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Eliminar.TabIndex = 31;
+            this.Btn_Eliminar.Text = "Eliminar";
+            this.Btn_Eliminar.UseVisualStyleBackColor = true;
+            // 
+            // Btn_Editar
+            // 
+            this.Btn_Editar.Location = new System.Drawing.Point(99, 288);
+            this.Btn_Editar.Name = "Btn_Editar";
+            this.Btn_Editar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Editar.TabIndex = 30;
+            this.Btn_Editar.Text = "Editar";
+            this.Btn_Editar.UseVisualStyleBackColor = true;
+            this.Btn_Editar.Click += new System.EventHandler(this.Btn_Editar_Click);
+            // 
             // Btn_Buscar
             // 
-            this.Btn_Buscar.Location = new System.Drawing.Point(18, 272);
+            this.Btn_Buscar.Location = new System.Drawing.Point(18, 288);
             this.Btn_Buscar.Name = "Btn_Buscar";
             this.Btn_Buscar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Buscar.TabIndex = 29;
@@ -89,6 +121,7 @@
             // 
             // selectRol
             // 
+            this.selectRol.DataSource = this.rolesBindingSource;
             this.selectRol.DisplayMember = "Nombre";
             this.selectRol.FormattingEnabled = true;
             this.selectRol.Location = new System.Drawing.Point(156, 212);
@@ -109,6 +142,7 @@
             // 
             // selectBodega
             // 
+            this.selectBodega.DataSource = this.bodegaBindingSource;
             this.selectBodega.DisplayMember = "Nombre";
             this.selectBodega.FormattingEnabled = true;
             this.selectBodega.Location = new System.Drawing.Point(18, 212);
@@ -214,24 +248,6 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Nombre";
             // 
-            // Btn_Editar
-            // 
-            this.Btn_Editar.Location = new System.Drawing.Point(99, 272);
-            this.Btn_Editar.Name = "Btn_Editar";
-            this.Btn_Editar.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Editar.TabIndex = 30;
-            this.Btn_Editar.Text = "Editar";
-            this.Btn_Editar.UseVisualStyleBackColor = true;
-            // 
-            // Btn_Eliminar
-            // 
-            this.Btn_Eliminar.Location = new System.Drawing.Point(180, 272);
-            this.Btn_Eliminar.Name = "Btn_Eliminar";
-            this.Btn_Eliminar.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Eliminar.TabIndex = 31;
-            this.Btn_Eliminar.Text = "Eliminar";
-            this.Btn_Eliminar.UseVisualStyleBackColor = true;
-            // 
             // GvUsuarios
             // 
             this.GvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -239,6 +255,47 @@
             this.GvUsuarios.Name = "GvUsuarios";
             this.GvUsuarios.Size = new System.Drawing.Size(476, 320);
             this.GvUsuarios.TabIndex = 1;
+            // 
+            // txtIdUser
+            // 
+            this.txtIdUser.Location = new System.Drawing.Point(18, 254);
+            this.txtIdUser.Name = "txtIdUser";
+            this.txtIdUser.ReadOnly = true;
+            this.txtIdUser.Size = new System.Drawing.Size(111, 20);
+            this.txtIdUser.TabIndex = 33;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(15, 236);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 15);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "Id";
+            // 
+            // altoValirioDataSet1
+            // 
+            this.altoValirioDataSet1.DataSetName = "AltoValirioDataSet1";
+            this.altoValirioDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bodegaBindingSource
+            // 
+            this.bodegaBindingSource.DataMember = "Bodega";
+            this.bodegaBindingSource.DataSource = this.altoValirioDataSet1;
+            // 
+            // bodegaTableAdapter
+            // 
+            this.bodegaTableAdapter.ClearBeforeFill = true;
+            // 
+            // rolesBindingSource
+            // 
+            this.rolesBindingSource.DataMember = "Roles";
+            this.rolesBindingSource.DataSource = this.altoValirioDataSet1;
+            // 
+            // rolesTableAdapter
+            // 
+            this.rolesTableAdapter.ClearBeforeFill = true;
             // 
             // FrmListadoUsuarios
             // 
@@ -254,6 +311,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GvUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.altoValirioDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bodegaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -279,5 +339,12 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView GvUsuarios;
+        private System.Windows.Forms.TextBox txtIdUser;
+        private System.Windows.Forms.Label label8;
+        private AltoValirioDataSet1 altoValirioDataSet1;
+        private System.Windows.Forms.BindingSource bodegaBindingSource;
+        private AltoValirioDataSet1TableAdapters.BodegaTableAdapter bodegaTableAdapter;
+        private System.Windows.Forms.BindingSource rolesBindingSource;
+        private AltoValirioDataSet1TableAdapters.RolesTableAdapter rolesTableAdapter;
     }
 }

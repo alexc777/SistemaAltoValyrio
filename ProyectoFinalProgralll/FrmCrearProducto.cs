@@ -26,9 +26,6 @@ namespace ProyectoFinalProgralll
             var operaciones = new OperacionesProductos();
             int EstadoRefri = 0;
 
-            //Para vitacora
-            int IdUsuario = FrmHome.IdUsuario;
-
             if (selectRefri.Text == "No")
             {
                 EstadoRefri = 1;
@@ -45,27 +42,18 @@ namespace ProyectoFinalProgralll
                 Id_marca = Convert.ToInt32(selectMarca.SelectedValue),
                 Id_categoria = Convert.ToInt32(selectCategoria.SelectedValue),
                 Refrigerado = EstadoRefri,
-                Fecha_vence = dateFechaVence.Value,
                 TipoEmpaque = Convert.ToInt32(selectEmpaque.SelectedValue),
+                Cantidad = double.Parse(txtCantidad.Text),
+                Estado = 1,
+                Fecha_vence = dateFechaVence.Value,
                 Fecha_creo = DateTime.Now,
-                Cantidad = int.Parse(txtCantidad.Text)
             };
 
             operaciones.CrearProducto(miProducto);
-            int Id = operaciones.idProdCrate;
             MessageBox.Show("El Producto " + txtNombre.Text + " fue creado exitosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtNombre.Clear();
             txtPrecio.Clear();
             txtCantidad.Clear();
-
-            var miHubicacion = new HubicacionProducto
-            {
-                Id_producto = Id,
-                Id_bodega = Convert.ToInt32(selectBodega.SelectedValue),
-                Fecha = DateTime.Now
-            };
-            operaciones.GuardarHubiProducto(miHubicacion);
-            MessageBox.Show("Hubicación guardada " + Id + " exitosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 

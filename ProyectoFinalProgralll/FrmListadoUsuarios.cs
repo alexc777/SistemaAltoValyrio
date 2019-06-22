@@ -14,7 +14,8 @@ namespace ProyectoFinalProgralll
     public partial class FrmListadoUsuarios : Form
     {
         private home FrmHome;
-
+        public int idUser = 0;
+        public string idUsers = "";
         public FrmListadoUsuarios(home home)
         {
             InitializeComponent();
@@ -23,6 +24,10 @@ namespace ProyectoFinalProgralll
 
         private void FrmListadoUsuarios_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'altoValirioDataSet1.Roles' Puede moverla o quitarla según sea necesario.
+            this.rolesTableAdapter.Fill(this.altoValirioDataSet1.Roles);
+            // TODO: esta línea de código carga datos en la tabla 'altoValirioDataSet1.Bodega' Puede moverla o quitarla según sea necesario.
+            this.bodegaTableAdapter.Fill(this.altoValirioDataSet1.Bodega);
             CargarUsuarios();
         }
 
@@ -90,20 +95,44 @@ namespace ProyectoFinalProgralll
         {
             foreach (DataRow informacion in dsUsuario.Tables[0].Rows)
             {
+                txtIdUser.Text = informacion["Id"].ToString();
                 txtNombre.Text = informacion["Nombre"].ToString();
                 txtApellido.Text = informacion["Apellido"].ToString();
                 txtPass1.Text = informacion["Contrasenia"].ToString();
             }
+            
         }
 
         private void LlenarCamposFormularioNom(DataSet dsUsuario)
         {
             foreach (DataRow informacion in dsUsuario.Tables[0].Rows)
             {
+                txtIdUser.Text = informacion["Id"].ToString();
                 txtCorreo.Text = informacion["Correo"].ToString();
                 txtApellido.Text = informacion["Apellido"].ToString();
                 txtPass1.Text = informacion["Contrasenia"].ToString();
             }
+        }
+
+        private void Btn_Editar_Click(object sender, EventArgs e)
+        {
+            var operacione = new OperacionesUsuario();
+            var dsUsuario = new DataSet();
+
+            var miUser = new Usuarios
+            {
+                Nombre = txtNombre.Text,
+                Apellido = txtApellido.Text,
+                Correo = txtCorreo.Text,
+                Contrasenia = txtPass1.Text,
+                Id_bodega = Convert.ToInt32(selectBodega.SelectedValue),
+                Id_rol = Convert.ToInt32(selectRol.SelectedValue)
+            };
+
+            operacione.EditarUsuario(miUser, int.Parse(txtIdUser.Text));
+            CargarUsuarios();
+
+
         }
 
         /*

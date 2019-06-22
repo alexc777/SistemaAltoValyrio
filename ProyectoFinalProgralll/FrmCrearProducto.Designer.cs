@@ -31,8 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.Btn_Crear = new System.Windows.Forms.Button();
             this.selectCategoria = new System.Windows.Forms.ComboBox();
+            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.altoValirioDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.altoValirioDataSet1 = new ProyectoFinalProgralll.AltoValirioDataSet1();
             this.label7 = new System.Windows.Forms.Label();
             this.selectMarca = new System.Windows.Forms.ComboBox();
+            this.marcaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,34 +48,28 @@
             this.dateFechaVence = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.selectEmpaque = new System.Windows.Forms.ComboBox();
-            this.selectBodega = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.empaqueBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.altoValirioDataSet1 = new ProyectoFinalProgralll.AltoValirioDataSet1();
-            this.marcaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.marcaTableAdapter = new ProyectoFinalProgralll.AltoValirioDataSet1TableAdapters.MarcaTableAdapter();
-            this.altoValirioDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriaTableAdapter = new ProyectoFinalProgralll.AltoValirioDataSet1TableAdapters.CategoriaTableAdapter();
-            this.empaqueBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.empaqueTableAdapter = new ProyectoFinalProgralll.AltoValirioDataSet1TableAdapters.EmpaqueTableAdapter();
-            this.bodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bodegaTableAdapter = new ProyectoFinalProgralll.AltoValirioDataSet1TableAdapters.BodegaTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.altoValirioDataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.altoValirioDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.marcaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.altoValirioDataSet1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empaqueBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bodegaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Btn_Crear
             // 
-            this.Btn_Crear.Location = new System.Drawing.Point(111, 271);
+            this.Btn_Crear.Location = new System.Drawing.Point(107, 238);
             this.Btn_Crear.Name = "Btn_Crear";
             this.Btn_Crear.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Crear.TabIndex = 29;
+            this.Btn_Crear.TabIndex = 9;
             this.Btn_Crear.Text = "Crear";
             this.Btn_Crear.UseVisualStyleBackColor = true;
             this.Btn_Crear.Click += new System.EventHandler(this.Btn_Crear_Click);
@@ -84,8 +82,23 @@
             this.selectCategoria.Location = new System.Drawing.Point(163, 73);
             this.selectCategoria.Name = "selectCategoria";
             this.selectCategoria.Size = new System.Drawing.Size(111, 21);
-            this.selectCategoria.TabIndex = 28;
+            this.selectCategoria.TabIndex = 4;
             this.selectCategoria.ValueMember = "Id";
+            // 
+            // categoriaBindingSource
+            // 
+            this.categoriaBindingSource.DataMember = "Categoria";
+            this.categoriaBindingSource.DataSource = this.altoValirioDataSet1BindingSource;
+            // 
+            // altoValirioDataSet1BindingSource
+            // 
+            this.altoValirioDataSet1BindingSource.DataSource = this.altoValirioDataSet1;
+            this.altoValirioDataSet1BindingSource.Position = 0;
+            // 
+            // altoValirioDataSet1
+            // 
+            this.altoValirioDataSet1.DataSetName = "AltoValirioDataSet1";
+            this.altoValirioDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label7
             // 
@@ -105,8 +118,13 @@
             this.selectMarca.Location = new System.Drawing.Point(25, 73);
             this.selectMarca.Name = "selectMarca";
             this.selectMarca.Size = new System.Drawing.Size(111, 21);
-            this.selectMarca.TabIndex = 26;
+            this.selectMarca.TabIndex = 3;
             this.selectMarca.ValueMember = "Id";
+            // 
+            // marcaBindingSource
+            // 
+            this.marcaBindingSource.DataMember = "Marca";
+            this.marcaBindingSource.DataSource = this.altoValirioDataSet1;
             // 
             // label6
             // 
@@ -123,7 +141,7 @@
             this.txtPrecio.Location = new System.Drawing.Point(163, 27);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(111, 20);
-            this.txtPrecio.TabIndex = 18;
+            this.txtPrecio.TabIndex = 2;
             // 
             // label2
             // 
@@ -140,7 +158,7 @@
             this.txtNombre.Location = new System.Drawing.Point(25, 27);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(111, 20);
-            this.txtNombre.TabIndex = 16;
+            this.txtNombre.TabIndex = 1;
             // 
             // label1
             // 
@@ -159,7 +177,7 @@
             this.selectRefri.Location = new System.Drawing.Point(25, 126);
             this.selectRefri.Name = "selectRefri";
             this.selectRefri.Size = new System.Drawing.Size(111, 21);
-            this.selectRefri.TabIndex = 31;
+            this.selectRefri.TabIndex = 5;
             this.selectRefri.ValueMember = "Id";
             // 
             // label3
@@ -188,7 +206,7 @@
             this.dateFechaVence.Location = new System.Drawing.Point(163, 127);
             this.dateFechaVence.Name = "dateFechaVence";
             this.dateFechaVence.Size = new System.Drawing.Size(111, 20);
-            this.dateFechaVence.TabIndex = 34;
+            this.dateFechaVence.TabIndex = 6;
             // 
             // label5
             // 
@@ -208,35 +226,24 @@
             this.selectEmpaque.Location = new System.Drawing.Point(25, 180);
             this.selectEmpaque.Name = "selectEmpaque";
             this.selectEmpaque.Size = new System.Drawing.Size(111, 21);
-            this.selectEmpaque.TabIndex = 36;
+            this.selectEmpaque.TabIndex = 7;
             this.selectEmpaque.ValueMember = "Id";
             // 
-            // selectBodega
+            // empaqueBindingSource
             // 
-            this.selectBodega.DataSource = this.bodegaBindingSource;
-            this.selectBodega.DisplayMember = "Nombre";
-            this.selectBodega.FormattingEnabled = true;
-            this.selectBodega.Location = new System.Drawing.Point(163, 180);
-            this.selectBodega.Name = "selectBodega";
-            this.selectBodega.Size = new System.Drawing.Size(111, 21);
-            this.selectBodega.TabIndex = 38;
-            this.selectBodega.ValueMember = "Id";
+            this.empaqueBindingSource.DataMember = "Empaque";
+            this.empaqueBindingSource.DataSource = this.altoValirioDataSet1BindingSource;
             // 
-            // label8
+            // bodegaBindingSource
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(160, 162);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 15);
-            this.label8.TabIndex = 37;
-            this.label8.Text = "Bodega";
+            this.bodegaBindingSource.DataMember = "Bodega";
+            this.bodegaBindingSource.DataSource = this.altoValirioDataSet1BindingSource;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(24, 208);
+            this.label9.Location = new System.Drawing.Point(160, 162);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 15);
             this.label9.TabIndex = 39;
@@ -244,52 +251,22 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(25, 226);
+            this.txtCantidad.Location = new System.Drawing.Point(161, 180);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(111, 20);
-            this.txtCantidad.TabIndex = 40;
-            // 
-            // altoValirioDataSet1
-            // 
-            this.altoValirioDataSet1.DataSetName = "AltoValirioDataSet1";
-            this.altoValirioDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // marcaBindingSource
-            // 
-            this.marcaBindingSource.DataMember = "Marca";
-            this.marcaBindingSource.DataSource = this.altoValirioDataSet1;
+            this.txtCantidad.TabIndex = 8;
             // 
             // marcaTableAdapter
             // 
             this.marcaTableAdapter.ClearBeforeFill = true;
             // 
-            // altoValirioDataSet1BindingSource
-            // 
-            this.altoValirioDataSet1BindingSource.DataSource = this.altoValirioDataSet1;
-            this.altoValirioDataSet1BindingSource.Position = 0;
-            // 
-            // categoriaBindingSource
-            // 
-            this.categoriaBindingSource.DataMember = "Categoria";
-            this.categoriaBindingSource.DataSource = this.altoValirioDataSet1BindingSource;
-            // 
             // categoriaTableAdapter
             // 
             this.categoriaTableAdapter.ClearBeforeFill = true;
             // 
-            // empaqueBindingSource
-            // 
-            this.empaqueBindingSource.DataMember = "Empaque";
-            this.empaqueBindingSource.DataSource = this.altoValirioDataSet1BindingSource;
-            // 
             // empaqueTableAdapter
             // 
             this.empaqueTableAdapter.ClearBeforeFill = true;
-            // 
-            // bodegaBindingSource
-            // 
-            this.bodegaBindingSource.DataMember = "Bodega";
-            this.bodegaBindingSource.DataSource = this.altoValirioDataSet1BindingSource;
             // 
             // bodegaTableAdapter
             // 
@@ -299,11 +276,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(306, 306);
+            this.ClientSize = new System.Drawing.Size(305, 282);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.selectBodega);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.selectEmpaque);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateFechaVence);
@@ -323,10 +298,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crear Producto";
             this.Load += new System.EventHandler(this.FrmCrearProducto_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.altoValirioDataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.altoValirioDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.marcaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.altoValirioDataSet1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.empaqueBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bodegaBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -350,8 +325,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox selectEmpaque;
-        private System.Windows.Forms.ComboBox selectBodega;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateFechaVence;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCantidad;

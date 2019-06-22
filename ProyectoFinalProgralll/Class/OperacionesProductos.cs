@@ -1,6 +1,7 @@
 ﻿using ProyectoFinalProgralll.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,29 @@ namespace ProyectoFinalProgralll.Class
 {
     public class OperacionesProductos : IProducto
     {
+        public void ActualizarProductoTraslado(int idProducto, int Cantidad)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
+                    conn.Open();
+
+                    SqlCommand insertCommand = new SqlCommand("UPDATE Productos SET Cantidad = "+ Cantidad +"WHERE Id = "+ idProducto, conn);
+
+                    insertCommand.Parameters.Add(new SqlParameter("Cantidad", Cantidad));
+                    insertCommand.ExecuteScalar();
+                    
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public void BuscarProducto(string nombre)
         {
             throw new NotImplementedException();
@@ -20,7 +44,6 @@ namespace ProyectoFinalProgralll.Class
             throw new NotImplementedException();
         }
 
-        public int idProdCrate = 0;
         public void CrearProducto(Productos producto)
         {
             try
@@ -30,19 +53,20 @@ namespace ProyectoFinalProgralll.Class
                     conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
                     conn.Open();
                     SqlCommand insertCommand = new SqlCommand("INSERT INTO Productos VALUES (@Nombre,@Precio,@Id_marca,@Id_categoria" +
-                        ",@Refrigerado,@Fecha_vence,@TipoEmpaque,@Fecha_creo,@Cantidad) SELECT SCOPE_IDENTITY()", conn);
+                        ",@Refrigerado,@TipoEmpaque,@Cantidad,@Estado,@Fecha_vence,@Fecha_creo)", conn);
 
                     insertCommand.Parameters.Add(new SqlParameter("Nombre", producto.Nombre));
                     insertCommand.Parameters.Add(new SqlParameter("Precio", producto.Precio));
                     insertCommand.Parameters.Add(new SqlParameter("Id_marca", producto.Id_marca));
                     insertCommand.Parameters.Add(new SqlParameter("Id_categoria", producto.Id_categoria));
                     insertCommand.Parameters.Add(new SqlParameter("Refrigerado", producto.Refrigerado));
-                    insertCommand.Parameters.Add(new SqlParameter("Fecha_vence", producto.Fecha_vence));
                     insertCommand.Parameters.Add(new SqlParameter("TipoEmpaque", producto.TipoEmpaque));
-                    insertCommand.Parameters.Add(new SqlParameter("Fecha_creo", producto.Fecha_creo));
                     insertCommand.Parameters.Add(new SqlParameter("Cantidad", producto.Cantidad));
+                    insertCommand.Parameters.Add(new SqlParameter("Estado", producto.Estado));
+                    insertCommand.Parameters.Add(new SqlParameter("Fecha_vence", producto.Fecha_vence));
+                    insertCommand.Parameters.Add(new SqlParameter("Fecha_creo", producto.Fecha_creo));
+                    insertCommand.ExecuteScalar();
 
-                    idProdCrate = Convert.ToInt32(insertCommand.ExecuteScalar());
                 }
             }
             catch (Exception)
@@ -62,7 +86,7 @@ namespace ProyectoFinalProgralll.Class
             throw new NotImplementedException();
         }
 
-        public void GuardarHubiProducto(HubicacionProducto producto)
+        public DataSet ProductoCategoria(int Id_categoria)
         {
             try
             {
@@ -70,40 +94,69 @@ namespace ProyectoFinalProgralll.Class
                 {
                     conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
                     conn.Open();
-                    SqlCommand insertCommand = new SqlCommand("INSERT INTO HubicacionProducto VALUES (@Id_producto,@Id_bodega,@Fecha)", conn);
 
-                    insertCommand.Parameters.Add(new SqlParameter("Id_producto", producto.Id_producto));
-                    insertCommand.Parameters.Add(new SqlParameter("Id_bodega", producto.Id_bodega));
-                    insertCommand.Parameters.Add(new SqlParameter("Fecha", producto.Fecha));
+                    var select = "SELECT * FROM Productos WHERE Productos.Id_categoria = " + Id_categoria + " AND Productos.Estado ="+ 1 + "ORDER BY Productos.Fecha_creo DESC";
+                    var dataAdapter = new SqlDataAdapter(select, conn);
+                    var commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    var ds = new DataSet();
+                    dataAdapter.Fill(ds);
+
+                    return ds;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void RegistroBitacora(Vitacora bitacora)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
+                    conn.Open();
+                    SqlCommand insertCommand = new SqlCommand("INSERT INTO Vitacora VALUES (@Id_usuario,@Tipo_operacion,@Fecha,@Id_productoBodega)", conn);
+
+                    insertCommand.Parameters.Add(new SqlParameter("Id_usuario", bitacora.Id_usuario));
+                    insertCommand.Parameters.Add(new SqlParameter("Tipo_operacion", bitacora.Tipo_operacion));
+                    insertCommand.Parameters.Add(new SqlParameter("Fecha", bitacora.Fecha));
+                    insertCommand.Parameters.Add(new SqlParameter("Id_productoBodega", bitacora.Id_productoBodega));
 
                     insertCommand.ExecuteScalar();
                 }
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
 
-        public void BuscarHubiProducto(string nombre)
+        public int IdTraslado = 0;
+        public void TrasladarProducto(ProductoBodega productoBodega)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
+                    conn.Open();
+                    SqlCommand insertCommand = new SqlCommand("INSERT INTO ProductoBodega VALUES (@Id_producto,@Id_bodega,@Cantidad_inicial,@Cantidad_actual) SELECT SCOPE_IDENTITY()", conn);
 
-        public void BuscarHubiProducto(string nombre, int estado)
-        {
-            throw new NotImplementedException();
-        }
+                    insertCommand.Parameters.Add(new SqlParameter("Id_producto", productoBodega.Id_producto));
+                    insertCommand.Parameters.Add(new SqlParameter("Id_bodega", productoBodega.Id_bodega));
+                    insertCommand.Parameters.Add(new SqlParameter("Cantidad_inicial", productoBodega.Cantidad_inicial));
+                    insertCommand.Parameters.Add(new SqlParameter("Cantidad_actual", productoBodega.Cantidad_actual));
 
-        public void ActualizarHubiProducto(HubicacionProducto producto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ElimiHubinarProducto(int id)
-        {
-            throw new NotImplementedException();
+                    IdTraslado = Convert.ToInt32(insertCommand.ExecuteScalar());
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

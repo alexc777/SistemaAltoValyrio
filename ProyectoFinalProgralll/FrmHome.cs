@@ -31,6 +31,7 @@ namespace ProyectoFinalProgralll
             productosToolStripMenuItem.Visible = false;
             marcaToolStripMenuItem.Visible = false;
             categoriaToolStripMenuItem.Visible = false;
+            reportesToolStripMenuItem.Visible = false;
 
             IdUsuario = Form1.IdUsuario;
 
@@ -38,6 +39,8 @@ namespace ProyectoFinalProgralll
             {
                 adminToolStripMenuItem.Enabled = true;
                 adminToolStripMenuItem.Visible = true;
+                reportesToolStripMenuItem.Enabled = true;
+                reportesToolStripMenuItem.Visible = true;
             }
             else if (Form1.miId == 2)
             {
@@ -98,6 +101,63 @@ namespace ProyectoFinalProgralll
             using (var list = new FrmListadoUsuarios(this))
             {
                 list.ShowDialog();
+            }
+        }
+
+        private void trasladarProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var tras = new FrmTrasladoProducto(this))
+            {
+                tras.ShowDialog();
+            }
+        }
+
+        private void verMovimientosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var movimiento = new FrmMovimientos(this))
+            {
+                movimiento.ShowDialog();
+            }
+        }
+
+        private void productosPorBodegaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var proBodega = new FrmProductosPorBodega(this))
+            {
+                proBodega.ShowDialog();
+            }
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var login = new Form1())
+            {
+                this.Close();
+                login.ShowDialog();
+            }
+        }
+
+        private void filtrarProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var filtros = new FrmFiltrarProductos(this))
+            {
+                filtros.ShowDialog();
+            }
+        }
+
+        private void listadoMarcasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var marca = new FrmListadoMarcas(this))
+            {
+                marca.ShowDialog();
+            }
+        }
+
+        private void listadoCategoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var categoria = new FrmListadoCategorias(this))
+            {
+                categoria.ShowDialog();
             }
         }
     }

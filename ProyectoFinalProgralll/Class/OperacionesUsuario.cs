@@ -85,9 +85,33 @@ namespace ProyectoFinalProgralll.Class
             }
         }
 
-        public void EditarUsuario(int id)
+        public void EditarUsuario(Usuarios usuario, int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
+                    conn.Open();
+
+                    SqlCommand insertCommand = new SqlCommand("UPDATE Usuarios SET Nombre = @Nombre, Apellido = @Apellido, Correo = @Correo," +
+                        "Contrasenia = @Contrasenia, Id_bodega = @Id_bodega, Id_rol = @Id_rol" +" WHERE Id = " + id, conn);
+
+                    insertCommand.Parameters.Add(new SqlParameter("Nombre", usuario.Nombre));
+                    insertCommand.Parameters.Add(new SqlParameter("Apellido", usuario.Apellido));
+                    insertCommand.Parameters.Add(new SqlParameter("Correo", usuario.Correo));
+                    insertCommand.Parameters.Add(new SqlParameter("Contrasenia", usuario.Contrasenia));
+                    insertCommand.Parameters.Add(new SqlParameter("Id_bodega", usuario.Id_bodega));
+                    insertCommand.Parameters.Add(new SqlParameter("Id_rol", usuario.Id_rol));
+                    insertCommand.ExecuteScalar();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public void EliminarUsuario(int id)

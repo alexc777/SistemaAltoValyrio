@@ -14,9 +14,10 @@ namespace ProyectoFinalProgralll.Class
         public int Id_marca { get; set; }
         public int Id_categoria { get; set; }
         public int Refrigerado { get; set; }
-        public DateTime Fecha_vence { get; set; }
         public int TipoEmpaque { get; set; }
+        public double Cantidad { get; set; }
+        public int Estado { get; set; }
+        public DateTime Fecha_vence { get; set; }
         public DateTime Fecha_creo { get; set; }
-        public int Cantidad { get; set; }
     }
 }

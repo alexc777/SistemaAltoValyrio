@@ -1,6 +1,7 @@
 ﻿using ProyectoFinalProgralll.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,22 +11,60 @@ namespace ProyectoFinalProgralll.Class
 {
     public class OperacionesMarcaCategoria : IMarcaCategoria
     {
-        public void BuscarCategoria(string nombre)
+        public DataSet BuscarCategoria(string nombre)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
+                    conn.Open();
+
+                    var select = "SELECT * FROM Categoria WHERE Nombre ='" + nombre + "'";
+                    var dataAdapter = new SqlDataAdapter(select, conn);
+                    var commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    var ds = new DataSet();
+                    dataAdapter.Fill(ds);
+
+                    return ds;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public DataSet BuscarCategoria(string nombre, int estado)
         {
             throw new NotImplementedException();
         }
 
-        public void BuscarCategoria(string nombre, int estado)
+        public DataSet BuscarMarca(string nombre)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
+                    conn.Open();
+
+                    var select = "SELECT * FROM Marca WHERE Nombre ='" + nombre + "'";
+                    var dataAdapter = new SqlDataAdapter(select, conn);
+                    var commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    var ds = new DataSet();
+                    dataAdapter.Fill(ds);
+
+                    return ds;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public void BuscarMarca(string nombre)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void BuscarMarca(string nombre, int estado)
+        public DataSet BuscarMarca(string nombre, int estado)
         {
             throw new NotImplementedException();
         }
@@ -74,14 +113,50 @@ namespace ProyectoFinalProgralll.Class
             }
         }
 
-        public void EditarCategoria(int id)
+        public void EditarCategoria(Categoria categoria, int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
+                    conn.Open();
+
+                    SqlCommand insertCommand = new SqlCommand("UPDATE Categoria SET Nombre = @Nombre WHERE Id = " + id, conn);
+
+                    insertCommand.Parameters.Add(new SqlParameter("Nombre", categoria.Nombre));
+                    insertCommand.ExecuteScalar();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
-        public void EditarMarca(int id)
+        public void EditarMarca(Marca marca,int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
+                    conn.Open();
+
+                    SqlCommand insertCommand = new SqlCommand("UPDATE Marca SET Nombre = @Nombre WHERE Id = " + id, conn);
+
+                    insertCommand.Parameters.Add(new SqlParameter("Nombre", marca.Nombre));
+                    insertCommand.ExecuteScalar();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public void EliminarCategoria(int id)
@@ -102,6 +177,56 @@ namespace ProyectoFinalProgralll.Class
         public void EliminarMarca(int id, int estado)
         {
             throw new NotImplementedException();
+        }
+
+        public DataSet ObtenerMarcas()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
+                    conn.Open();
+
+                    //var select = "SELECT * FROM Usuarios";
+                    var select = "SELECT * FROM Marca";
+                    var dataAdapter = new SqlDataAdapter(select, conn);
+                    var commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    var ds = new DataSet();
+                    dataAdapter.Fill(ds);
+
+                    return ds;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public DataSet ObtenerCategorias()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
+                    conn.Open();
+
+                    //var select = "SELECT * FROM Usuarios";
+                    var select = "SELECT * FROM Categoria";
+                    var dataAdapter = new SqlDataAdapter(select, conn);
+                    var commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    var ds = new DataSet();
+                    dataAdapter.Fill(ds);
+
+                    return ds;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

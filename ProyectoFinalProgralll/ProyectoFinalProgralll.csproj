@@ -58,16 +58,19 @@
     <Compile Include="Class\Bodega.cs" />
     <Compile Include="Class\Categoria.cs" />
     <Compile Include="Class\Empaque.cs" />
-    <Compile Include="Class\HubicacionProducto.cs" />
     <Compile Include="Class\Login.cs" />
     <Compile Include="Class\Marca.cs" />
+    <Compile Include="Class\OperacionesBitacora.cs" />
     <Compile Include="Class\OperacionesBodega.cs" />
     <Compile Include="Class\OperacionesMarcaCategoria.cs" />
     <Compile Include="Class\OperacionesProductos.cs" />
+    <Compile Include="Class\OperacionesReportes.cs" />
     <Compile Include="Class\OperacionesUsuario.cs" />
+    <Compile Include="Class\ProductoBodega.cs" />
     <Compile Include="Class\Productos.cs" />
     <Compile Include="Class\Roles.cs" />
     <Compile Include="Class\Usuarios.cs" />
+    <Compile Include="Class\Vitacora.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,11 +107,29 @@
     <Compile Include="FrmCrearUsuarios.Designer.cs">
       <DependentUpon>FrmCrearUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmFiltrarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFiltrarProductos.Designer.cs">
+      <DependentUpon>FrmFiltrarProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHome.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmHome.Designer.cs">
       <DependentUpon>FrmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoCategorias.Designer.cs">
+      <DependentUpon>FrmListadoCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoMarcas.Designer.cs">
+      <DependentUpon>FrmListadoMarcas.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListadoUsuarios.cs">
       <SubType>Form</SubType>
@@ -116,9 +137,30 @@
     <Compile Include="FrmListadoUsuarios.Designer.cs">
       <DependentUpon>FrmListadoUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMovimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMovimientos.Designer.cs">
+      <DependentUpon>FrmMovimientos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductosPorBodega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductosPorBodega.Designer.cs">
+      <DependentUpon>FrmProductosPorBodega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTrasladoProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTrasladoProducto.Designer.cs">
+      <DependentUpon>FrmTrasladoProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Dataset.cs" />
+    <Compile Include="Interfaces\IBitacora.cs" />
     <Compile Include="Interfaces\IBodega.cs" />
     <Compile Include="Interfaces\IMarcaCategoria.cs" />
     <Compile Include="Interfaces\IProducto.cs" />
+    <Compile Include="Interfaces\IReportes.cs" />
     <Compile Include="Interfaces\IUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -140,11 +182,29 @@
     <EmbeddedResource Include="FrmCrearUsuarios.resx">
       <DependentUpon>FrmCrearUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmFiltrarProductos.resx">
+      <DependentUpon>FrmFiltrarProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoCategorias.resx">
+      <DependentUpon>FrmListadoCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoMarcas.resx">
+      <DependentUpon>FrmListadoMarcas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoUsuarios.resx">
       <DependentUpon>FrmListadoUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMovimientos.resx">
+      <DependentUpon>FrmMovimientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductosPorBodega.resx">
+      <DependentUpon>FrmProductosPorBodega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTrasladoProducto.resx">
+      <DependentUpon>FrmTrasladoProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

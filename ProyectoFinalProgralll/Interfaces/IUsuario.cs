@@ -14,7 +14,7 @@ namespace ProyectoFinalProgralll.Interfaces
         DataSet BuscarUsuario(string correo);
         DataSet BuscarUsuarioNombre(string nombre);
         DataSet ObtenerUsuarios();
-        void EditarUsuario(int id);
+        void EditarUsuario(Usuarios usuario, int id);
         void EliminarUsuario(int id);
         void EliminarUsuario(int id, int estado);
     }
