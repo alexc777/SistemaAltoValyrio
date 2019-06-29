@@ -58,11 +58,17 @@
     <Compile Include="Class\Bodega.cs" />
     <Compile Include="Class\Categoria.cs" />
     <Compile Include="Class\Empaque.cs" />
+    <Compile Include="Class\Log.cs" />
     <Compile Include="Class\Login.cs" />
+    <Compile Include="Class\LogMarca.cs" />
+    <Compile Include="Class\LogUsuarios.cs" />
     <Compile Include="Class\Marca.cs" />
     <Compile Include="Class\OperacionesBitacora.cs" />
     <Compile Include="Class\OperacionesBodega.cs" />
+    <Compile Include="Class\OperacionesLog.cs" />
+    <Compile Include="Class\OperacionesLogUsuario.cs" />
     <Compile Include="Class\OperacionesMarcaCategoria.cs" />
+    <Compile Include="Class\OperacionesMarcaLog.cs" />
     <Compile Include="Class\OperacionesProductos.cs" />
     <Compile Include="Class\OperacionesReportes.cs" />
     <Compile Include="Class\OperacionesUsuario.cs" />
@@ -137,6 +143,24 @@
     <Compile Include="FrmListadoUsuarios.Designer.cs">
       <DependentUpon>FrmListadoUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogs.Designer.cs">
+      <DependentUpon>FrmLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogsMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogsMarca.Designer.cs">
+      <DependentUpon>FrmLogsMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogUsuarios.Designer.cs">
+      <DependentUpon>FrmLogUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMovimientos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,10 +182,13 @@
     <Compile Include="Interfaces\Dataset.cs" />
     <Compile Include="Interfaces\IBitacora.cs" />
     <Compile Include="Interfaces\IBodega.cs" />
+    <Compile Include="Interfaces\ILog.cs" />
     <Compile Include="Interfaces\IMarcaCategoria.cs" />
+    <Compile Include="Interfaces\IMarcaLog.cs" />
     <Compile Include="Interfaces\IProducto.cs" />
     <Compile Include="Interfaces\IReportes.cs" />
     <Compile Include="Interfaces\IUsuario.cs" />
+    <Compile Include="Interfaces\IUsuarioLog.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -196,6 +223,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoUsuarios.resx">
       <DependentUpon>FrmListadoUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogs.resx">
+      <DependentUpon>FrmLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogsMarca.resx">
+      <DependentUpon>FrmLogsMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogUsuarios.resx">
+      <DependentUpon>FrmLogUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMovimientos.resx">
       <DependentUpon>FrmMovimientos.cs</DependentUpon>

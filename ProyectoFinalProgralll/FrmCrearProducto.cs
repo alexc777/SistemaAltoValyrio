@@ -50,6 +50,21 @@ namespace ProyectoFinalProgralll
             };
 
             operaciones.CrearProducto(miProducto);
+
+            int idUser = FrmHome.IdUsuario;
+            int idProdC = operaciones.IdProd;
+            var operacinesLogs = new OperacionesLog();
+
+            var miLog = new Log
+            {
+                Id_usuario = idUser,
+                Id_producto = idProdC,
+                TipoOperacion = "Creación",
+                Fecha = DateTime.Now
+            };
+
+            operacinesLogs.RegistroLog(miLog);
+
             MessageBox.Show("El Producto " + txtNombre.Text + " fue creado exitosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtNombre.Clear();
             txtPrecio.Clear();

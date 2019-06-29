@@ -130,6 +130,18 @@ namespace ProyectoFinalProgralll
             };
 
             operacione.EditarUsuario(miUser, int.Parse(txtIdUser.Text));
+
+            int idulog = FrmHome.IdUsuario;
+            var opLog = new OperacionesLogUsuario();
+
+            var miLog = new LogUsuarios
+            {
+                Id_usuario = idulog,
+                TipoOperacion = "Edición",
+                Fecha = DateTime.Now
+            };
+            opLog.RegistroLog(miLog);
+
             CargarUsuarios();
 
 

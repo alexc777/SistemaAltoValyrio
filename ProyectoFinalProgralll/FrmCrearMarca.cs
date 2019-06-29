@@ -32,6 +32,17 @@ namespace ProyectoFinalProgralll
                     Estado = 1,
                 };
                 operaciones.CrearMarca(miMarca);
+
+                int idulog = FrmHome.IdUsuario;
+                var opLog = new OperacionesMarcaLog();
+
+                var miLog = new LogMarca
+                {
+                    Id_usuario = idulog,
+                    TipoOperacion = "Creación",
+                    Fecha = DateTime.Now
+                };
+                opLog.RegistroLog(miLog);
                 MessageBox.Show("La Marca " + txtNombre.Text + " fue creada exitosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }

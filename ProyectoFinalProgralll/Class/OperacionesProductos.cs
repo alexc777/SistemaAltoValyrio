@@ -44,6 +44,7 @@ namespace ProyectoFinalProgralll.Class
             throw new NotImplementedException();
         }
 
+        public int IdProd = 0;
         public void CrearProducto(Productos producto)
         {
             try
@@ -53,7 +54,7 @@ namespace ProyectoFinalProgralll.Class
                     conn.ConnectionString = "Server=OSMANC-777\\SQLEXPRESS;Database=AltoValirio;Trusted_Connection=true";
                     conn.Open();
                     SqlCommand insertCommand = new SqlCommand("INSERT INTO Productos VALUES (@Nombre,@Precio,@Id_marca,@Id_categoria" +
-                        ",@Refrigerado,@TipoEmpaque,@Cantidad,@Estado,@Fecha_vence,@Fecha_creo)", conn);
+                        ",@Refrigerado,@TipoEmpaque,@Cantidad,@Estado,@Fecha_vence,@Fecha_creo) SELECT SCOPE_IDENTITY()", conn);
 
                     insertCommand.Parameters.Add(new SqlParameter("Nombre", producto.Nombre));
                     insertCommand.Parameters.Add(new SqlParameter("Precio", producto.Precio));
@@ -66,6 +67,8 @@ namespace ProyectoFinalProgralll.Class
                     insertCommand.Parameters.Add(new SqlParameter("Fecha_vence", producto.Fecha_vence));
                     insertCommand.Parameters.Add(new SqlParameter("Fecha_creo", producto.Fecha_creo));
                     insertCommand.ExecuteScalar();
+
+                    IdProd = Convert.ToInt32(insertCommand.ExecuteScalar());
 
                 }
             }

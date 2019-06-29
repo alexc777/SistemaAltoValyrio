@@ -82,6 +82,17 @@ namespace ProyectoFinalProgralll
             };
 
             operacione.EditarMarca(miMarca, int.Parse(txtIdUser.Text));
+
+            int idulog = FrmHome.IdUsuario;
+            var opLog = new OperacionesMarcaLog();
+
+            var miLog = new LogMarca
+            {
+                Id_usuario = idulog,
+                TipoOperacion = "Edición",
+                Fecha = DateTime.Now
+            };
+            opLog.RegistroLog(miLog);
             CargarMarcas();
         }
     }

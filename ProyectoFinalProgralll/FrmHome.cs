@@ -160,5 +160,29 @@ namespace ProyectoFinalProgralll
                 categoria.ShowDialog();
             }
         }
+
+        private void logsAccionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var log = new FrmLogs(this))
+            {
+                log.ShowDialog();
+            }
+        }
+
+        private void logUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var logu = new FrmLogUsuarios(this))
+            {
+                logu.ShowDialog();
+            }
+        }
+
+        private void logMarcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var logm = new FrmLogsMarca(this))
+            {
+                logm.ShowDialog();
+            }
+        }
     }
 }

@@ -48,6 +48,18 @@ namespace ProyectoFinalProgralll
                 };
 
                 operaciones.CrearUsuario(miUsuario);
+
+                int idulog = FrmHome.IdUsuario;
+                var opLog = new OperacionesLogUsuario();
+
+                var miLog = new LogUsuarios
+                {
+                    Id_usuario = idulog,
+                    TipoOperacion = "Creación",
+                    Fecha = DateTime.Now
+                };
+                opLog.RegistroLog(miLog);
+
                 MessageBox.Show("El Usuario "+ txtCorreo.Text + " fue creado exitosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtNombre.Clear();
                 txtApellido.Clear();

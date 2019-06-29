@@ -1,0 +1,43 @@
+﻿using ProyectoFinalProgralll.Class;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace ProyectoFinalProgralll
+{
+    public partial class FrmLogs : Form
+    {
+        private home FrmHome;
+        public FrmLogs(home home)
+        {
+            InitializeComponent();
+            this.FrmHome = home;
+
+            CargarLogs();
+        }
+
+        public void CargarLogs()
+        {
+            var getLog = new OperacionesLog();
+            var dsLogs = new DataSet();
+
+            dsLogs = getLog.ObtenerLogs();
+
+            if (dsLogs.Tables[0].Rows.Count != 0)
+            {
+                GvLogs.DataSource = dsLogs.Tables[0];
+                GvLogs.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("No existen Registros: ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+    }
+}

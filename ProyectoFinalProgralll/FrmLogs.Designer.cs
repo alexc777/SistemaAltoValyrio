@@ -1,6 +1,6 @@
 ﻿namespace ProyectoFinalProgralll
 {
-    partial class FrmMovimientos
+    partial class FrmLogs
     {
         /// <summary>
         /// Required designer variable.
@@ -28,37 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.GvMovimientos = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.GvMovimientos)).BeginInit();
+            this.GvLogs = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.GvLogs)).BeginInit();
             this.SuspendLayout();
             // 
-            // GvMovimientos
+            // GvLogs
             // 
-            this.GvMovimientos.BackgroundColor = System.Drawing.Color.DarkRed;
-            this.GvMovimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GvMovimientos.Location = new System.Drawing.Point(13, 12);
-            this.GvMovimientos.Name = "GvMovimientos";
-            this.GvMovimientos.Size = new System.Drawing.Size(814, 294);
-            this.GvMovimientos.TabIndex = 0;
+            this.GvLogs.BackgroundColor = System.Drawing.Color.DarkRed;
+            this.GvLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GvLogs.Location = new System.Drawing.Point(13, 30);
+            this.GvLogs.Name = "GvLogs";
+            this.GvLogs.Size = new System.Drawing.Size(775, 408);
+            this.GvLogs.TabIndex = 0;
             // 
-            // FrmMovimientos
+            // FrmLogs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
-            this.ClientSize = new System.Drawing.Size(863, 339);
-            this.Controls.Add(this.GvMovimientos);
-            this.Name = "FrmMovimientos";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.GvLogs);
+            this.Name = "FrmLogs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Movimientos";
-            this.Load += new System.EventHandler(this.FrmMovimientos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.GvMovimientos)).EndInit();
+            this.Text = "Logs";
+            ((System.ComponentModel.ISupportInitialize)(this.GvLogs)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView GvMovimientos;
+        private System.Windows.Forms.DataGridView GvLogs;
     }
 }
